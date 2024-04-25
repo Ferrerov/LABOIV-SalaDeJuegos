@@ -1,3 +1,4 @@
+
 .fullscreen-bg {
     position: fixed;
     width: 100%;
@@ -5,6 +6,66 @@
   }
   
   .text-white {
-    color: white; /* Color del texto */
+    color: white;
   }
+
+
+body {
+  padding: 0;
+   margin: 0;
+box-sizing: border-box;
+text-decoration: none;
+font-family:15px/1.5 arial, helvetica, san-serif;
+background-color:whitesmoke;
+}
+
+.container{
+width:100%;
+margin:auto;
+overflow:hidden;
+}
+
+#showcase .intro{
+float:left;
+padding:100px;
+}
+
+#showcase h1{
+font-weight:900;
+font-size:80px;
+margin-bottom:-40px;
+margin-left:-5px;
+}
+#showcase h4{
+font-size:20px;
+margin-top:25px;
+margin-bottom:0px;
+}
+#showcase span{
+color:green;
+font-weight:1000;
+font-size:30px;
+
+}
+#showcase p{
+font-size:12px;
+font-weight:600;
+}
+
+
+
+#showcase .displaypicture{
+  float:right;
+padding-top:40px;
+padding-bottom:50px;
+margin-right:-45px;
+}
+
+#showcase img{
+    height: 400px;
+-webkit-clip-path: circle(39% at 50% 50%);
+ clip-path: circle(39% at 50% 50%);;
+}
+
+
   
