@@ -1,11 +1,140 @@
 
-.fullscreen-bg {
-    position: fixed;
-    width: 100%;
-    height: 100%;
+
+@import 'https://fonts.googleapis.com/css?family=Economica:400,400i,700,700i';
+
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html, body {
+  font-family: 'Economica', sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: steelblue;
+  min-height: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit
+}
+
+
+.container-fluid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+
+  &:hover {
+    & > .section {
+      filter: brightness(22%);
+    }
+    & > .section:hover {
+      filter: brightness(100%);
+    }
   }
   
-  .text-white {
-    color: white; /* Color del texto */
+  .section {
+    flex-grow: 1;
+    position: relative;
+    height: 100%;
+    transition: all 0.4s;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    text-align: center;
+    flex: 1;
+    
+    .cont_title {
+      position:relative;
+      margin: auto;
+      width: 100%;
+      height: 300px;
+      text-align: center;
+      margin-top: 35vh;
+      h1 {
+        text-transform: uppercase;
+        color: white;
+        font-family: 'Economica', sans-serif;
+        text-shadow: 1px 2px 5px rgba(0,0,0,0.5);
+        font-size: 3.5vw;
+        margin: 0;
+        transition: font-size 0.3s;
+        vertical-align: middle;
+      }
+      h3 {
+        text-transform: uppercase;
+        font-family: 'Economica', sans-serif;
+        font-size: 1.3vw;
+        transition: all 0.3s;
+        color: white;
+      }
+    }
+    
+    .cont_desc {
+      position: relative;
+      display: block;
+      text-align: center;
+      width: 60%;
+      height: auto;
+      margin: auto;
+      opacity: 0;
+      transition: opacity 0.4s;
+      padding-top: 20px;
+      p {
+        margin: 0;
+        font-family: 'Economica', sans-serif;
+        color: white;
+        font-size: 25px;
+      }
+    }
+    
+    &:hover {
+      flex-grow: 1.8;
+      transition: flex 0.4s;
+      
+      & > .cont_title h1 {
+        font-size: 5.3vw;
+        transition: font-size 0.4s;
+      }
+      
+      & > .cont_title h3 {
+        font-size: 1.6vw;
+        transition: all 0.4s;
+      }
+      
+      & > .cont_desc {
+        opacity: 1;
+        transition-delay: 1s;
+        transition: opacity 0.8s;
+      }
+    }
+    
+    &:nth-child(1) {
+      background: url("https://live.staticflickr.com/2713/4365515062_1b931c257e_b.jpg") center;
+    }
+    &:nth-child(2) {
+      background: url("https://i0.wp.com/www.actividadesdeinfantilyprimaria.com/wp-content/uploads/2023/09/numeracion-mayor-menor-igual-8.jpg?resize=720%2C1040&ssl=1") center;
+    }
+    &:nth-child(3) {
+      background: url("https://img.freepik.com/vector-premium/concepto-preguntas-respuestas-o-preguntas-frecuentes-personajes-personas-diminutas-gran-signo-interrogacion-preguntas-frecuentes_503038-738.jpg") center;
+    }
+    &:nth-child(4) {
+      background: url("https://st4.depositphotos.com/22373756/28336/i/450/depositphotos_283362682-stock-photo-signal-monitor-static-noise-bad.jpg") center;
+    }
   }
- 
+}
