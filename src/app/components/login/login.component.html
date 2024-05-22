@@ -3,9 +3,19 @@
 
         <!-- The content half -->
             <div class="login d-flex align-items-center py-5 bg-light">
-
                 <!-- Demo content-->
                 <div class="container">
+                    <div class="row">
+                        <div class="col-lg-10 col-xl-7 mx-auto bg-light">
+                            <div class="button-container">
+                                <button class="btn btn-orange btn-block text-uppercase mb-2 rounded-pill shadow-sm" (click)="setCredentials('usuario1@gmail.com', '123456')">Usuario 1</button>
+                                <button class="btn btn-orange btn-block text-uppercase mb-2 rounded-pill shadow-sm" (click)="setCredentials('usuario2@gmail.com', '123456')">Usuario 2</button>
+                                <button class="btn btn-orange btn-block text-uppercase mb-2 rounded-pill shadow-sm" (click)="setCredentials('usuario3@gmail.com', '123456')">Usuario 3</button>
+                            </div>
+                        </div>
+
+                    </div>
+                    
                     <div class="row">
                         <div class="col-lg-10 col-xl-7 mx-auto">
                             <h1 class="display-4">Inicia sesión</h1>

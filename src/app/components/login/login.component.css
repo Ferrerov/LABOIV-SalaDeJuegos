@@ -15,3 +15,14 @@
   justify-content: space-between; /* Espacio uniforme entre los botones */
 }
 
+.btn-orange {
+  background-color: #f97316; /* Código de color para orange-500 */
+  border-color: #f97316;
+  color: white; /* Color del texto */
+}
+
+.btn-orange:hover {
+  background-color: #ea580c; /* Color más oscuro para el estado hover */
+  border-color: #ea580c;
+  color: white;
+}

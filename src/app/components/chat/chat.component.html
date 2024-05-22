@@ -1,0 +1,23 @@
+<div class="card text-center cardContainer">
+    <div class="card-header">
+      Chat
+    </div>
+    <div class="card-body">
+      <div>
+        @for(oneMessage of messages; track oneMessage)
+        {
+            <p class="received p-2">
+                {{oneMessage.userMessage}}
+            </p>
+        }
+    </div>
+    </div>
+    <form class="card-footer text-muted input-group" (ngSubmit)="sendMessage()"> 
+            <input type="text" class="form-control" placeholder="Ingrese su mensaje..." [(ngModel)]="message" name="inputMessage">
+            <div class="input-group-append" (click)="sendMessage()">
+              <span class="input-group-text" id="basic-addon2">
+                <img class="imgSendBtn" src="https://icons.veryicon.com/png/o/internet--web/iview-3-x-icons/ios-send.png" alt="sendMessage" height="25px">
+              </span>
+            </div>
+        </form>
+  </div>

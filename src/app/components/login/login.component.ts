@@ -46,4 +46,8 @@ export class LoginComponent {
   {
     this.router.navigateByUrl('/register');
   }
+
+  setCredentials(email: string, password: string) {
+    this.formLogin.setValue({ email, password });
+  }
 }

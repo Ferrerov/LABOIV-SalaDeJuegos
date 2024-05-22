@@ -1,0 +1,55 @@
+.cardContainer{
+    width: 300px;
+    height: 500px;
+    position: fixed;
+    right: 0.5rem;
+    bottom: 0.5rem;
+}
+.card-header{
+    background-color: rgb(57, 60, 255);
+    color: white;
+    font-weight: 700;
+}
+.form-control{
+    height: 40px;
+}
+.input-group-text{
+    height: 40px;
+}
+
+.card-body
+{
+    padding: 0.5rem;
+    background-image: url(https://e0.pxfuel.com/wallpapers/875/426/desktop-wallpaper-i-whatsapp-background-chat-whatsapp-graffiti.jpg);
+    background-size: cover;
+    background-color: grey;
+    color: white !important;
+}
+
+.imgSendBtn
+{
+    cursor: pointer;
+}
+.imgSendBtn:active{
+    transform: scale(0.9);
+}
+
+.received{
+    display: block;
+    float: left;
+    background-color: grey;
+    color: white;
+    min-width: 50.01%;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.sent{
+    display: block;
+    float: right;
+    background-color: rgb(57, 60, 255);
+    color: white;
+    min-width: 50.01%;
+    border-radius: 10px;
+    text-align: left;
+}
