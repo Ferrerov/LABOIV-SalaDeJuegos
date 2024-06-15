@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Component, inject } from '@angular/core';
+import { Validators, FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 import { NgIf } from '@angular/common';
+import { AuthService } from '../../services/auth.service';
+import { catchError } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -11,8 +13,8 @@ import { NgIf } from '@angular/common';
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
-export class RegisterComponent {
-  formReg: FormGroup;
+export class RegisterComponent { 
+  /*formReg: FormGroup;
   errorMessage: string | null = null;
 
   constructor(
@@ -21,7 +23,7 @@ export class RegisterComponent {
   )
   {
     this.formReg = new FormGroup(
-      {email: new FormControl(), password: new FormControl()}
+      {email: new FormControl(), username: new FormControl() ,password: new FormControl()}
     );
   }
 
@@ -43,6 +45,38 @@ export class RegisterComponent {
       } else {
         this.errorMessage = 'Se produjo un error al registrar el usuario.';
       }
+    });*/
+
+    authService = inject(AuthService);
+    fb = inject(FormBuilder);
+    router = inject(Router);
+
+    form = this.fb.nonNullable.group({
+      email : ['', Validators.required],
+      username : ['', Validators.required],
+      password : ['', Validators.required]
     });
+    errorMessage: string | null = null;
+
+    onSubmit(): void{
+      const rawForm = this.form.getRawValue();
+      
+
+    this.authService
+      .register(rawForm.email, rawForm.username,rawForm.password)
+      .subscribe({
+        next: () => {
+          this.router.navigateByUrl('/home');
+        },
+        error: (error) => {
+          console.log(error);
+          if (error.code === 'auth/email-already-in-use') {
+            this.errorMessage = 'El correo electrónico ya está en uso.';
+          } else {
+            this.errorMessage = 'Se produjo un error al registrar el usuario.';
+          }
+        }
+      })
+      
   }
 }

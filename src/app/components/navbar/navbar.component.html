@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<!--nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
       <a class="navbar-brand text-black" href="#">Sala de Juegos</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -7,7 +7,7 @@
       <div class="navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
                 <li class="nav-item order-1">
-                  @if(userService.checkUserLogged())
+                  @if(authService.currentUserSig())
                   {
                     <a class="nav-link active text-black" routerLink="/home" href="#">Inicio</a>
                   }
@@ -15,7 +15,7 @@
                     <a class="nav-link active text-black" routerLink="/landing" href="#">Inicio</a>
                   }
                 </li>
-              @if(!userService.checkUserLogged())
+              @if(authService.currentUserSig() == null)
               {
               <li class="nav-item order-2">
                   <a class="nav-link text-black" routerLink="/login" href="#">Iniciar Sesion</a>
@@ -28,10 +28,10 @@
                   <a class="nav-link text-black" routerLink="/quiensoy" href="#">Quien Soy</a>
               </li>
           </ul>
-          @if(userService.checkUserLogged()){
+          @if(authService.currentUserSig()){
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a class="nav-link text-black">{{userService.checkUserLogged()?.email}}</a>
+                <a class="nav-link text-black">{{authService.currentUserSig()?.username}}</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-black" routerLink="/landing" href="#" (click)="logout()">Cerrar Sesion</a>
@@ -39,5 +39,49 @@
             </ul>
           }
       </div>
+  </div>
+</nav-->
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Sala de Juegos</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          @if(authService.currentUserSig())
+            {
+              <a class="nav-link active text-black" routerLink="/home" href="#">Inicio</a>
+            }
+            @else {
+              <a class="nav-link active text-black" routerLink="/landing" href="#">Inicio</a>
+            }
+        </li>
+        @if(authService.currentUserSig() == null)
+        {
+          <li class="nav-item">
+              <a class="nav-link active text-black" routerLink="/login" href="#">Iniciar Sesion</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link active text-black" routerLink="/register" href="#">Registrarse</a>
+          </li>
+        }
+        <li class="nav-item">
+          <a class="nav-link active text-black" routerLink="/quiensoy" href="#">Quien soy</a>
+        </li>
+      </ul>
+      @if(authService.currentUserSig()){
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link text-black" routerLink="/landing" href="#" (click)="logout()">Cerrar Sesion</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-black">{{authService.currentUserSig()?.username}}</a>
+          </li>
+        </ul>
+      }
+    </div>
   </div>
 </nav>

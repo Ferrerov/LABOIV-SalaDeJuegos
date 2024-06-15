@@ -38,6 +38,7 @@ a {
   align-items: center;
   height: 100vh;
   width: 100vw;
+  position: fixed;
 
   &:hover {
     & > .section {

@@ -23,9 +23,12 @@
                         <div class="col-lg-10 col-xl-7 mx-auto">
                             <h1 class="display-4">Registrate</h1>
                             <p class="text-muted mb-4">Crea un usuario para acceder.</p>
-                            <form [formGroup]="formReg" (ngSubmit)="onSubmit()">
+                            <form [formGroup]="form" (ngSubmit)="onSubmit()">
                                 <div class="form-group mb-3">
                                     <input id="inputEmail" type="email" placeholder="Correo" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4" formControlName="email">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <input id="inputUsername" type="username" placeholder="Usuario" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4" formControlName="username">
                                 </div>
                                 <div class="form-group mb-3">
                                     <input id="inputPassword" type="password" placeholder="Contraseña" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary" formControlName="password">
